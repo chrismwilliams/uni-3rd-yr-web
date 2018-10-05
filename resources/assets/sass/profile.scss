@@ -1,0 +1,95 @@
+.profile-pg {
+  margin: 0 auto;
+  margin-top: 1em;
+  display: grid;
+  width: 80%;
+  grid-template-columns: 2% repeat(2, 1fr) 2%;
+  grid-template-areas:
+    ". title     title     ."
+    ". dashboard dashboard ."
+    ". bookmarks bookmarks ."
+    ". content   content   .";
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+  .dashboard {
+    grid-area: dashboard;
+    .box {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .heading {
+        font-size: 14px;
+      }
+      .title {
+        margin-top: auto;
+      }
+      @media (max-width: 1120px) {
+        padding: 1rem 2rem;
+        .title {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+  .bookmarks {
+    grid-area: bookmarks;
+    h2 {
+      font-size: 1.8em;
+      font-weight: 600;
+    }
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      .column {
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          .card-content {
+            .title {
+              margin-top: 0;
+              padding: 0;
+              @media (max-width: 1120px) {
+                font-size: 1.2rem;
+              }
+            }
+            .subtitle {
+              font-family: $raleway;
+            }
+          }
+          footer {
+            margin-top: auto;
+            form {
+              padding: 0 0.75rem;
+              button {
+                width: 100%;
+                height: 100%;
+                font-family: $cantata;
+                border: 0;
+                padding: 0;
+                color: #3273dc;
+                &:hover {
+                  color: #363636;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .form-container {
+    h2 {
+      margin-top: 0.8em;
+      font-size: 1.8em;
+      font-weight: 600;
+    }
+    form {
+      h3 {
+        font-size: 1.5em;
+        margin-bottom: 0.3em;
+      }
+    }
+  }
+}

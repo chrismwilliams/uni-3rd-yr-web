@@ -1,0 +1,38 @@
+.top-pg {
+  display: grid;
+  grid-template-columns: 2% repeat(2, 1fr) 2%;
+  grid-template-areas:
+    ".    title   title   ."
+    ".    content content .";
+
+  .table-section {
+    grid-area: content;
+
+    .image.is-128x128 {
+      height: 100px;
+    }
+
+    @media (max-width: 900px) {
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 600px) {
+      .comment_no {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .address {
+        display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .image.is-128x128 {
+        width: 100px;
+        height: 80px;
+      }
+    }
+  }
+}

@@ -1,0 +1,580 @@
+// weather icons
+@import "./weather/weather-icons.min.scss";
+.course-pg {
+  display: grid;
+  grid-template-columns: 2% repeat(2, 1fr) 2%;
+  grid-template-rows: minmax(200px, 450px) auto;
+  grid-template-areas: "hero hero    hero    hero" ".    content content .";
+  @media (max-width: 680px) {
+    grid-template-rows: minmax(200px, 350px) auto;
+  }
+  @media (max-width: 430px) {
+    grid-template-rows: 300px auto;
+  }
+  .hero {
+    @supports (display: grid) {
+      grid-area: hero;
+    }
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+    .course_title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translate(-0, -0);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1em;
+      h1 {
+        color: #efefef;
+        font-size: 1.6em;
+        font-weight: 600;
+      }
+      p {
+        color: #efefef;
+        margin-top: 0.5em;
+        font-family: $raleway;
+        font-size: 0.8em;
+      }
+      @media (max-width: 680px) {
+        width: 100%;
+        h1 {
+          font-size: 1.4em;
+        }
+        p {
+          display: none;
+        }
+      }
+      @media (max-width: 470px) {
+        padding: 0.5em;
+        h1 {
+          font-size: 1.2em;
+        }
+        p {
+          margin-top: 0;
+        }
+      }
+    }
+    .hero_msg {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      color: #efefef;
+      h1 {
+        font-size: 1em;
+        font-weight: 300;
+        font-family: $raleway;
+        &:last-of-type {
+          font-size: 4em;
+          font-family: $cantata;
+          font-weight: 600;
+        }
+        @media (max-width: 640px) {
+          font-size: 1em;
+          &:last-of-type {
+            font-size: 3em;
+          }
+        }
+      }
+      .bar {
+        width: 45%;
+        height: 2px;
+        background: #efefef;
+        border: 0;
+      }
+      p {
+        margin-top: 2em;
+        font-size: 1em;
+        text-align: center;
+        font-weight: 500;
+        font-family: $raleway;
+        @media (max-width: 640px) {
+          font-size: 0.7em;
+        }
+        i {
+          margin-right: 0.4em;
+        }
+      }
+    }
+  }
+  .content {
+    grid-area: content;
+    padding-top: 1em;
+    .page_heading {
+      margin: 0.2em 0;
+      width: 100%;
+      padding-left: 0;
+      display: flex;
+      align-items: baseline;
+      h2 {
+        font-size: 1em;
+        margin-bottom: 0;
+      }
+      a {
+        font-size: 0.6em;
+        margin-left: 1.5em;
+        font-family: $raleway;
+        i {
+          margin-right: 0.2em;
+        }
+      }
+      .user_save {
+        margin-left: auto;
+        margin-right: 1em;
+        display: flex;
+        align-items: baseline;
+        p {
+          margin-bottom: 0;
+          margin-right: 0.5em;
+          font-size: 0.5em;
+          font-family: $raleway;
+        }
+        .bookmark {
+          font-size: 0.45em;
+          color: $gold;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .course_heading {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      padding: 1em;
+      .course_location,
+      .course_extra {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 0.3em;
+        h3 {
+          font-size: 1.3em;
+        }
+        @media (max-width: 600px) {
+          h3 {
+            font-size: 1em;
+          }
+          p {
+            font-size: 0.8em !important;
+          }
+          .weather {
+            > div {
+              font-size: 0.8em;
+            }
+          }
+          .pricing h3 {
+            margin-bottom: 0.8em !important;
+          }
+        }
+        .course_map,
+        .course_extra,
+        .course_contact {
+          flex: 1;
+        }
+        .course_extra {
+          flex-direction: column;
+          border-left: 1px solid #e3e3e3;
+          padding-left: 1em;
+          .tag_container {
+            margin-bottom: 1em;
+          }
+          .tag {
+            font-weight: 600;
+          }
+          h3 {
+            margin-bottom: 0.5em;
+            color: #333;
+          }
+          .columns {
+            .column {
+              flex-grow: unset;
+              display: flex;
+              align-items: center;
+              span {
+                margin-left: 0.3em;
+              }
+              i {
+                margin-right: 0.3em;
+              }
+              @media (max-width: 780px) {
+                padding: 0.4rem 0.75rem;
+                span {
+                  margin-left: 0.5em;
+                }
+                i {
+                  margin-right: 0.5em;
+                }
+              }
+            }
+          }
+          .pricing {
+            .column {
+              margin: 0;
+            }
+            p {
+              font-family: $raleway;
+              font-size: 0.9em;
+              margin: 0.3em 0;
+              @media (max-width: 800px) {
+                padding: 0.1rem 0.75rem !important;
+              }
+              &:first-of-type {
+                padding-right: 2em;
+              }
+            }
+          }
+          .weather {
+            margin-top: 1em;
+            span {
+              font-family: $raleway;
+            }
+            .column:not(:last-child) {
+              padding-right: 2em;
+              @media (max-width: 800px) {
+                padding-right: 0.75rem;
+              }
+            }
+            @media (max-width: 800px) {
+              .columns {
+                display: flex;
+                flex-wrap: wrap;
+                .column {
+                  padding: 0.2rem 0.75rem !important;
+                }
+              }
+            }
+          }
+        }
+        .course_contact {
+          display: flex;
+          flex-direction: column;
+          > div {
+            margin-bottom: 1em;
+          }
+          h3 {
+            color: #333;
+            margin-bottom: 0;
+          }
+          p {
+            margin: 0.5em 0;
+            font-family: $raleway;
+            font-size: 0.9em;
+            a {
+              text-decoration: underline;
+            }
+          }
+        }
+        .course_map {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .map_container {
+            flex: 1;
+            max-height: 250px;
+            max-width: 400px;
+          }
+          @media (max-width: 1200px) {
+            display: none;
+          }
+        }
+      }
+      .course_location {
+        @media (max-width: 600px) {
+          flex-direction: column;
+          .course_contact,
+          .course_extra {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+          }
+          .course_extra {
+            padding: 0;
+            padding-bottom: 0.7em;
+            border: none;
+          }
+        }
+      }
+      .course_content {
+        flex-direction: column;
+        .details {
+          padding: 1em 0;
+          border-top: 1px solid #e3e3e3;
+          h3 {
+            font-size: 1.4em;
+          }
+          p {
+            font-family: $raleway;
+            white-space: pre-line;
+          }
+          @media (max-width: 600px) {
+            h3 {
+              font-size: 1.2em;
+            }
+            p {
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+    }
+    .review_stars {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        margin-right: 1em;
+        margin-bottom: 0em;
+        text-transform: uppercase;
+        font-family: $raleway;
+      }
+      input {
+        display: none;
+      }
+      label {
+        font-size: 0;
+        cursor: pointer;
+        color: lighten(#196173, 20%);
+        &.hover {
+          color: #196173;
+        }
+        &:before {
+          content: "\2605";
+          font-size: 1.2rem;
+        }
+        &.selected {
+          color: #b00058;
+        }
+      }
+    }
+    .course_review_input {
+      margin-top: 2em;
+      h3 {
+        font-weight: 600;
+        @media (max-width: 470px) {
+          font-size: 1.2em;
+        }
+      }
+      &.info {
+        padding: 1em;
+        font-size: 0.9em;
+        background-color: #fff;
+      }
+      .user_link {
+        color: $green;
+        padding-bottom: 1px;
+        border-bottom: 1px solid $green;
+      }
+      form {
+        margin-top: 1em;
+        textarea {
+          border: 0;
+          border-radius: 0;
+          height: 200px;
+          width: 100%;
+          font-family: $raleway;
+        }
+        .form_footer {
+          display: flex;
+          background-color: #fff;
+          @media (max-width: 500px) {
+            flex-direction: column;
+          }
+          > * {
+            flex: 1;
+          }
+          .review_stars {
+            min-width: 160px;
+            border-top: 1px solid #e3e3e3;
+            @media (max-width: 500px) {
+              padding: 0.2em;
+            }
+            label {
+              &:before {
+                @media (max-width: 500px) {
+                  margin-left: 0.3em;
+                }
+              }
+            }
+          }
+          button {
+            transition: all 0.25s;
+            height: 100%;
+            border-radius: 0;
+            &:hover {
+              box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+            }
+          }
+        }
+      }
+      h4 {
+        margin-bottom: 2em;
+        font-size: 1.1em;
+      }
+    }
+    .course_reviews_section {
+      margin: 2em 0;
+      .transition_comments-move {
+        transition: transform 0.7s;
+      }
+      .level {
+        display: flex;
+        margin-bottom: 0.7em;
+        h3 {
+          font-weight: 600;
+          margin-bottom: 0;
+          @media (max-width: 470px) {
+            font-size: 1.2em;
+          }
+        }
+      }
+      .course_reviews {
+        background: #f3f3f3;
+        .course_review {
+          position: relative;
+          background: #fff;
+          border-left: 4px solid lighten(#26bfaf, 20%);
+          &:nth-child(odd) {
+            border-left: 4px solid lighten(#1a644a, 30%);
+          }
+          display: flex;
+          flex-wrap: wrap;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          margin-bottom: 0.4em;
+          .fade-enter-active,
+          .fade-leave-active {
+            transition: opacity 250ms;
+          }
+          .fade-enter,
+          .fade-leave-to {
+            opacity: 0;
+          }
+          .review_delete {
+            position: absolute;
+            color: #fff;
+            .modal-background {
+              background-color: rgba(0, 0, 0, 0.9);
+            }
+          }
+          .review_body {
+            width: 100%;
+            .review_header {
+              display: flex;
+              flex-wrap: wrap;
+              > * {
+                flex: 1;
+                padding: 0.5em;
+                display: flex;
+                align-items: center;
+              }
+              .review_edit_msg {
+                p {
+                  font-weight: 600;
+                }
+              }
+              .review_user {
+                justify-content: flex-start;
+                padding-left: 2em;
+                @media (max-width: 600px) {
+                  padding-left: 0.5em;
+                }
+                .gravatar {
+                  border-radius: 50%;
+                  margin-right: 1.2em;
+                }
+                p {
+                  font-size: 1em;
+                  @media (max-width: 600px) {
+                    font-size: 0.8em;
+                  }
+                }
+              }
+              .review_rating,
+              .review_time {
+                justify-content: center;
+              }
+              .review_rating {
+                color: $blue;
+                font-size: 1.1em;
+                letter-spacing: 1px;
+                @media (max-width: 600px) {
+                  font-size: 0.9em;
+                }
+                .review_stars {
+                  @media (max-width: 850px) {
+                    p {
+                      font-size: 0.8em;
+                    }
+                  }
+                }
+              }
+              .review_time {
+                font-family: $raleway;
+                color: #2a2a2a;
+                font-size: 0.8em;
+                @media (max-width: 500px) {
+                  display: none;
+                }
+              }
+            }
+          }
+          .review_edit {
+            width: 100%;
+            > div {
+              border-top: 1px solid #e3e3e3;
+              font-size: 0.9rem;
+              height: 100%;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              @media (max-width: 600px) {
+                font-size: 0.8rem;
+              }
+              > div {
+                width: 100%;
+                padding: 0.5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: $raleway;
+                opacity: 0.6;
+                &:first-of-type {
+                  border-right: 1px solid #e3e3e3;
+                }
+                &:hover {
+                  cursor: pointer;
+                  opacity: 1;
+                }
+                i {
+                  margin-left: 0.7rem;
+                }
+              }
+            }
+          }
+          .user_review {
+            padding: 2em;
+            p {
+              font-family: $raleway;
+            }
+            @media (max-width: 600px) {
+              padding: 0.8em 1em;
+              p {
+                font-size: 0.8em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

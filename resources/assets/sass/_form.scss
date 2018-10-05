@@ -1,0 +1,96 @@
+.auth-pg {
+  margin: 0 auto;
+  margin-top: 1em;
+  display: grid;
+  width: 70%;
+  grid-template-columns: 2% repeat(2, 1fr) 2%;
+  grid-template-areas: ".    content content .";
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+  @media (max-width: 430px) {
+    grid-template-areas: "content content content content";
+  }
+}
+
+.form-container {
+  @supports (display: grid) {
+    grid-area: content;
+  }
+  .form {
+    background-color: #f7f7f7;
+    padding: 1.7em;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.075);
+    @media (max-width: 430px) {
+      padding: 1em 0.7em;
+      .field {
+        label,
+        .pass_link {
+          font-size: 0.8em;
+        }
+        &.flex {
+          flex-wrap: wrap;
+        }
+        button {
+          width: 100%;
+        }
+      }
+    }
+    .field {
+      &.flex {
+        justify-content: space-between;
+        align-items: center;
+      }
+      &.form_tags {
+        flex-wrap: wrap;
+
+        .tag_error {
+          width: 100%;
+        }
+      }
+    }
+    h1,
+    h2,
+    h4 {
+      color: #303030;
+      padding-bottom: 1rem;
+      font-size: 1.5em;
+      border-bottom: 1px solid #e6e6e6;
+      margin-bottom: 1.2em;
+    }
+    label {
+      font-family: $raleway;
+    }
+    .pass_link {
+      font-weight: 600;
+      font-family: $raleway;
+    }
+    .button {
+      margin-top: 1em;
+      color: #fff;
+      transition: all 0.25s;
+      padding-left: 3em;
+      padding-right: 3em;
+      &:hover {
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+      }
+    }
+    .input_label {
+      color: #363636;
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+    .img_container {
+      width: 50%;
+      margin-bottom: 0.3em;
+      @media (max-width: 430px) {
+        width: 70%;
+      }
+      @media (max-width: 380px) {
+        width: 100%;
+      }
+    }
+  }
+}
