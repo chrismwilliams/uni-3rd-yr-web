@@ -1,8 +1,7 @@
 {
   "name": "coursefinder",
-  "description": "Find your next course",
-  "keywords": ["Golf, Locator"],
-  "license": "MIT",
+  "description": "Application for golfers looking to find a new course",
+  "keywords": ["Golf, 'Course', Locator"],
   "type": "project",
   "require": {
     "php": ">=7.1.3",
