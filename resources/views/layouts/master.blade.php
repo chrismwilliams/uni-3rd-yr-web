@@ -22,7 +22,7 @@
     </div>
     @include ('partials.footer')
   </div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API')}}&libraries=places"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{config('app.google_api')}}&libraries=places"></script>
   
   <script src="{{ mix('js/manifest.js') }}"></script>
   <script src="{{ mix('js/vendor.js') }}"></script>

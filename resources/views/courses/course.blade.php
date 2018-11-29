@@ -74,7 +74,7 @@
         <div class="course_map">
           <div class="map_container">
             <figure class="image is-16by9">
-              <img src="https://maps.googleapis.com/maps/api/staticmap?center={{$course->lat}},{{$course->lng}}&zoom=14&size=380x250&key={{env('GOOGLE_API')}}&markers={{$course->lat}},{{$course->lng}}&scale=3" alt="Google Street Map of {{$course->name}}">
+              <img src="https://maps.googleapis.com/maps/api/staticmap?center={{$course->lat}},{{$course->lng}}&zoom=14&size=380x250&key={{config('app.google_api')}}&markers={{$course->lat}},{{$course->lng}}&scale=3" alt="Google Street Map of {{$course->name}}">
             </figure>
           </div>
         </div>
