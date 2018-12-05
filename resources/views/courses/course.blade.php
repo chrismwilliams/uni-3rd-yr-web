@@ -1,6 +1,7 @@
 @extends ('layouts.master')
 
 @section('title', $course->name . ' Page')
+@section('description', 'All the important details on ' . $course->name)
 
 @section ('content')
 
@@ -16,7 +17,7 @@
     <div class="page_heading">
       <h2>Details</h2>
       @can('update', $course)
-        <a class="link is-link" href="{{ route('edit.course', $course->slug) }}"><i class="fas fa-pencil-alt"></i>Edit</a>
+        <a class="link is-link" href="{{ route('courses.edit', $course->slug) }}"><i class="fas fa-pencil-alt"></i>Edit</a>
       @endcan
       @auth
         <div class="user_save">
@@ -41,7 +42,7 @@
           </div>
           <div>
             <h3>Website</h3>
-          <p><a target="_blank" href="{{ $course->website }}">{{ str_limit(str_replace('http://','',$course->website), 35, '...')}}</a></p>
+          <p><a target="_blank" rel="nofollow noopener noreferrer" href="{{ $course->website }}">{{ str_limit(str_replace('http://','',$course->website), 35, '...')}}</a></p>
           </div>  
         </div>
         <div class="course_extra">
@@ -74,7 +75,7 @@
         <div class="course_map">
           <div class="map_container">
             <figure class="image is-16by9">
-              <img src="https://maps.googleapis.com/maps/api/staticmap?center={{$course->lat}},{{$course->lng}}&zoom=14&size=380x250&key={{config('app.google_api')}}&markers={{$course->lat}},{{$course->lng}}&scale=3" alt="Google Street Map of {{$course->name}}">
+              <img src="https://maps.googleapis.com/maps/api/staticmap?center={{$course->lat}},{{$course->lng}}&zoom=14&size=380x250&key={{config('services.google_api')}}&markers={{$course->lat}},{{$course->lng}}&scale=3" alt="Google Street Map of {{$course->name}}">
             </figure>
           </div>
         </div>
