@@ -22,7 +22,7 @@ class UserController extends Controller
     $this->middleware('auth');
   }
 
-  public function show()
+  public function index()
   {
     // show user profile page
     return view('user.index');
