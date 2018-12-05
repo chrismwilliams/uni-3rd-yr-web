@@ -1,6 +1,7 @@
 @extends ('layouts.master')
 
 @section('title', 'Top Courses')
+@section('description', 'View the top user rated golf courses within your area!')
 
 @section ('content')
 
@@ -25,7 +26,7 @@
                 <img src="{{asset('storage/courses/' . $course->thumbnail)}}" alt="Image of {{$course->name}}">
               </figure>
             </th>
-            <td role="columnheader"><a href="{{ route('course', $course->slug) }}" title="{{ $course->name}}">{{ $course->name }}</a></td>
+            <td role="columnheader"><a href="{{ route('courses.show', $course->slug) }}" title="{{ $course->name}}">{{ $course->name }}</a></td>
             <td role="columnheader" class="address">{{ $course->address }}</td>
             @if ($course->average > 0)
               <td role="columnheader" class="comment_no">{{ $course->comments_count }}</td>

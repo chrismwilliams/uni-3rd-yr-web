@@ -68,7 +68,7 @@
     <div class="nav_section">
       <ul class="flex has-text-centered">
         <li class="flex"><a href="{{route('index')}}">Home</a></li>
-        <li class="flex"><a href="{{route('courses')}}">Courses</a></li>
+        <li class="flex"><a href="{{route('courses.index')}}">Courses</a></li>
         <li class="flex"><a href="{{route('top')}}">Top</a></li>
         <li class="flex"><a href="{{route('map')}}">Map</a></li>
       </ul>
@@ -80,7 +80,7 @@
           <li class="flex"><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
         @else
           <li class="flex user">
-            <a href="{{ route('user.profile') }}" class="user-gravatar">
+            <a href="{{ route('user.index') }}" class="user-gravatar">
             <img src="{{ Auth::user()->gravatar }}" alt="User Gravatar Image">
             <p>Profile</p>
             </a>

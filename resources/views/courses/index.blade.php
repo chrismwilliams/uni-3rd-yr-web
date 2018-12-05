@@ -1,6 +1,7 @@
 @extends ('layouts.master')
 
-@section('title', 'Courses Page')
+@section('title', 'All Courses')
+@section('description', 'A list of all the best local, national and international golf courses to play, rated by fellow players')
 
 @section ('content')
 
@@ -8,14 +9,14 @@
   <div class="page_heading">
     <h1>Courses</h1>
     @auth
-      <a class="link is-link" href="{{ route('create.course') }}" class="course"><i class="fas fa-plus-square"></i>Add New</a>
+      <a class="link is-link" href="{{ route('courses.create') }}" class="course"><i class="fas fa-plus-square"></i>Add New</a>
     @endauth
   </div>
 
   <ul class="courses">
     @foreach ($courses as $course)
       <li>
-        <a href="{{ route('course', $course->slug) }}" class="course">
+        <a href="{{ route('courses.show', $course->slug) }}" class="course">
           <div class="course_head">
             <figure class="image">
               <img src="{{asset('storage/courses/' . $course->img_src)}}" alt="Image of {{$course->name}}">

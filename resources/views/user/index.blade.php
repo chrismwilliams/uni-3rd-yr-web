@@ -1,11 +1,12 @@
 @extends ('layouts.master')
 
-@section('title', 'Profile Page')
+@section('title', auth()->user()->username . '\'s Profile Page')
+@section('description', auth()->user()->username . '\'s coursefinder profile page')
 
 @section ('content')
 
 <div class="profile-pg">
-  <h1 class="page_heading">Welcome {{ auth()->user()->username }}</h1>
+  <h1 class="page_heading">Welcome back {{ auth()->user()->username }}</h1>
   <div class="dashboard columns is-mutiline">
     <div class="column">
       <div class="box notification has-text-centered">
@@ -28,10 +29,10 @@
   </div>
   @if(!empty($courses))
     <div class="bookmarks">
-      <h2>Bookmarks</h2>
+      <h2>Your Bookmarks</h2>
       <div class="courses columns">
         @foreach ($courses as $course)
-          <div href="{{ route('course', $course->slug) }}" class="column">
+          <div class="column">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-16by9">
@@ -43,9 +44,10 @@
                 <p class="subtitle is-7">{{ $course->address }}</p>
               </div>
               <footer class="card-footer">
-                <a aria-label="Visit {{$course->name}} Page" href="{{ route('course', $course->slug) }}" class="card-footer-item">Visit</a>
+                <a aria-label="Visit {{$course->name}} Page" href="{{ route('courses.show', $course->slug) }}" class="card-footer-item">Visit</a>
                 <form method="POST" action="{{ route('bookmark.remove') }}" class="card-footer-item">
                   @csrf
+                  @method('DELETE')
                   <input type="hidden" name="course_id" value="{{ $course->id }}">
                   <button class="button" type="submit">Remove</button>
                 </form>
@@ -60,6 +62,7 @@
     <h2>Account</h2>
     <form class="form" method="POST" action="{{route('user.update')}}" >
       @csrf
+      @method('PATCH')
       <h3>Reset Your Password</h3>
 
       <div class="field">
