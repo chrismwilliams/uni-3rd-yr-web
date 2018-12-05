@@ -91,7 +91,7 @@ class CourseController extends Controller
     // add the pivot tags
     $course->tags()->attach($request->tags);
     // return newly created course
-    return redirect()->route('course', [$slug])->with('message', $course->name . ' has been added!');
+    return redirect()->route('courses.show', [$slug])->with('message', $course->name . ' has been added!');
   }
 
   public function edit($slug)
@@ -111,8 +111,8 @@ class CourseController extends Controller
 
   public function update(UpdateCourseReq $request)
   {
-    // find the course
-    $course = Course::where('slug', $request->route('slug'))->firstOrFail();
+    // get the course
+    $course = $request->getCourse();
 
     // check if name changed
     if ($request->name !== $course->name) {
@@ -142,7 +142,7 @@ class CourseController extends Controller
       $course->thumbnail = $course->slug . '/' . $path[1];
     }
 
-    // udpate all fields
+    // update all fields
     $course->address = $request->address;
     $course->description = $request->description;
     $course->lat = $request->lat;
@@ -160,7 +160,7 @@ class CourseController extends Controller
     $course->save();
     
     // redirect with updates
-    return redirect()->route('course', [$course->slug])->with('message', $course->name . ' has been updated!');
+    return redirect()->route('courses.show', [$course->slug])->with('message', $course->name . ' has been updated!');
   }
 
   public function findLocal()
