@@ -1,15 +1,14 @@
 @extends ('layouts.master')
 
-@section('title', 'Home Page')
+@section('title', 'Home')
 
 @section ('content')
 
 <div class="home-pg">
   <div class="hero">
-  <img src="{{ asset('storage/hero.jpg')}}" alt="Masters Image">
+    <img src="{{ asset('images/hero.jpg') }}" alt="Masters Image">
     <div class="hero_msg">
-      <h1 class="has-text-weight-bold">WELCOME TO</h1>     
-      <h1>coursefinder</h1>
+      <h1><span class="has-text-weight-bold is-uppercase">Welcome to</span><span>coursefinder</span></h1>
       <hr class="bar">
       <p><i class="fas fa-map-marker-alt fa-2x" aria-hidden="true"></i>&nbsp; find your next favourite course</p>
     </div>
