@@ -14,8 +14,8 @@ class CreateBookmarksTable extends Migration
     public function up()
     {
         Schema::create('bookmark', function (Blueprint $table) {
-            $table->integer('course_id');
-            $table->integer('user_id');
+            $table->unsignedInteger('course_id');
+            $table->unsignedInteger('user_id');
             $table->primary(['course_id', 'user_id']);
         });
     }
