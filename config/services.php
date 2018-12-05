@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'postmark' => [
+        'secret' => env('POSTMARK_SECRET'),
+    ],
+    'google_api' => env('GOOGLE_API', ''),
+    'weather_api' => env('WEATHER_API', ''),
 ];
