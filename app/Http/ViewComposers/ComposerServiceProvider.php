@@ -33,7 +33,7 @@ class ComposerServiceProvider extends ServiceProvider
       // Create a curl client to openweathermap api with course lat/lng
       try {
         $client = new Client(['base_uri' => 'http://api.openweathermap.org/data/2.5/']);
-        $res = $client->request('GET', "weather?lat=$course->lat&lon=$course->lng&units=metric&APPID=" . config('app.weather_api'));
+        $res = $client->request('GET', "weather?lat=$course->lat&lon=$course->lng&units=metric&APPID=" . config('services.weather_api'));
         $res = json_decode($res->getBody(), true);
 
         $weather['current'] = $res['weather'][0];
