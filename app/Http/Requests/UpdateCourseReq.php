@@ -8,6 +8,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCourseReq extends FormRequest
 {
+    private $course;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -15,9 +17,9 @@ class UpdateCourseReq extends FormRequest
      */
     public function authorize()
     {
-        $course = Course::where('slug', $this->route('slug'))->firstOrFail();
+        $this->course = Course::where('slug', $this->route('course'))->firstOrFail();
 
-        return $course && $this->user()->can('update', $course);
+        return $this->course && $this->user()->can('update', $this->course);
     }
 
     /**
@@ -34,7 +36,7 @@ class UpdateCourseReq extends FormRequest
                 'string',
                 'min:5',
                 'max:255',
-                Rule::unique('course')->ignore($this->route('slug'), 'slug')->where(function ($query) {
+                Rule::unique('course')->ignore($this->course->name, 'name')->where(function ($query) {
                     return $query->where('address', request('address'));
                 })
             ],
@@ -57,5 +59,10 @@ class UpdateCourseReq extends FormRequest
         return [
             'name.unique' => 'This course has already been created'
         ];
+    }
+
+    public function getCourse()
+    {
+        return $this->course;
     }
 }
