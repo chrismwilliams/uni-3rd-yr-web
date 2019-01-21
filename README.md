@@ -1,4 +1,9 @@
-# coursefinder ⛳️👀
+<p align="center">
+  <img alt="coursefinder logo" src="https://www.coursefinder.golf/images/apple-touch-icon.png" width="80" />
+</p>
+<h1 align="center">
+  coursefinder
+</h1>
 
 ## Advanced Web Applications 3rd Yr Project
 
